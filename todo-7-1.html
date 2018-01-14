@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery</title>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="todo-7-1b.js"></script>
+	<style>
+		table{
+			margin: 20px 0;
+		}
+		.completed{
+			text-decoration: line-through;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>My ToDo List</h1>
+		<hr>
+		<form>
+		  <div class="form-group">
+		    <label for="listItemInput">New ToDo Item</label>
+		    <input type="text" class="form-control" id="listItemInput" placeholder="Type New ToDo Item">
+		  </div>
+			<button type="submit" class="btn btn-info">Submit</button>
+		</form>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Item</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- <td>1</td>
+				<td>Go Shoping</td>
+				<td>
+					<button class="btn btn-success">Completed</button>
+					<button class="btn">
+						Shift
+						<span class="glyphicon glyphicon-menu-up"></span>
+					</button>
+					<button class="btn">
+						Shift
+						<span class="glyphicon glyphicon-menu-down"></span>
+					</button>
+					<button class="btn btn-danger">Delete</button>
+				</td> -->
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

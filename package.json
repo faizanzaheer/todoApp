@@ -1,0 +1,22 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "todo-7-1b.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sultanaslam/todoApp.git"
+  },
+  "keywords": [
+    "todoApp"
+  ],
+  "author": "Sultan Aslam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sultanaslam/todoApp/issues"
+  },
+  "homepage": "https://github.com/sultanaslam/todoApp#readme"
+}

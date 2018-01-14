@@ -1,19 +1,12 @@
-	function formCb(event) {
-		event.preventDefault();
-		var itemValue = $('#listItemInput').val();
-		var itemObj = {itemValue: itemValue, completed: false};
-		$('#listItemInput').val('');
-		addListItem(itemObj);
-		renderArray();
-	};
 
-	function addListItem(item) {
-		listItems.push(item);
+	function addListItem(item,listItems) {
+		listItems.push(item);		
+		renderArray(listItems);
 	};
 
 	function removeListItem(index){
 		listItems.splice(index, 1);
-		renderArray();
+		renderArray(listItems);
 	}
 
 	function shiftUpItem(index) {
@@ -22,7 +15,7 @@
 		}else{
 			var temp = listItems.splice(index, 1);
 			listItems.splice(index-1, 0, temp[0]);
-			renderArray();
+			renderArray(listItems);
 		}
 	}
 
@@ -32,17 +25,17 @@
 		}else{
 			var temp = listItems.splice(index, 1);
 			listItems.splice(index+1, 0, temp[0]);
-			renderArray();
+			renderArray(listItems);
 		}
 	}
 
 	function completedItem(index) {
 		listItems[index].completed = !listItems[index].completed;
 		console.log(listItems[index].completed)
-		renderArray();
+		renderArray(listItems);
 	}
 
-	function renderArray() {
+	function renderArray(listItems) {
 		$('tbody').remove();
 		$('table').append('<tbody></tbody>');
 		listItems.map(function(listItem, index){
@@ -86,3 +79,5 @@
 
 			});
 	};	
+
+module.exports = addListItem;

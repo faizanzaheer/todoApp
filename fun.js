@@ -4,12 +4,12 @@
 		renderArray(listItems);
 	};
 
-	function removeListItem(index){
+	function removeListItem(index, listItems){
 		listItems.splice(index, 1);
 		renderArray(listItems);
 	}
 
-	function shiftUpItem(index) {
+	function shiftUpItem(index, listItems) {
 		if (!index) {
 			return null;
 		}else{
@@ -19,7 +19,7 @@
 		}
 	}
 
-	function shiftDownItem(index) {
+	function shiftDownItem(index, listItems) {
 		if (index >= listItems.length-1) {
 			return null;
 		}else{
@@ -29,7 +29,7 @@
 		}
 	}
 
-	function completedItem(index) {
+	function completedItem(index, listItems) {
 		listItems[index].completed = !listItems[index].completed;
 		console.log(listItems[index].completed)
 		renderArray(listItems);
@@ -62,19 +62,19 @@
 				
 				$(`#btnDel${index}`).on('click', function(e){
 					console.log(`Delete ${index}`);
-					removeListItem(index);
+					removeListItem(index, listItems);
 				});
 				
 				$(`#btnUp${index}`).on('click', function(e){
-					shiftUpItem(index);
+					shiftUpItem(index, listItems);
 				});
 
 				$(`#btnDown${index}`).on('click', function(e){
-					shiftDownItem(index);
+					shiftDownItem(index, listItems);
 				});
 
 				$(`#btnComplete${index}`).on('click', function(e){
-					completedItem(index);
+					completedItem(index, listItems);
 				});
 
 			});

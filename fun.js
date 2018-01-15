@@ -1,5 +1,5 @@
 
-	function addListItem(item,listItems) {
+	function addListItem(item, listItems) {
 		listItems.push(item);		
 		renderArray(listItems);
 	};

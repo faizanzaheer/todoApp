@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	console.log('Loading.....');
 
-	var addItems = require('./fun.js');
+	var addItems = require('./fun');
 
 	var listItems = [];
 
@@ -13,7 +13,7 @@ $(document).ready(function(){
 		var itemValue = $('#listItemInput').val();
 		var itemObj = {itemValue: itemValue, completed: false};
 		$('#listItemInput').val('');
-		addItems(itemObj,listItems);
-	};	
+		addItems(itemObj, listItems);
+	}	
 	
 });

@@ -18,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/sultanaslam/todoApp/issues"
   },
-  "homepage": "https://github.com/sultanaslam/todoApp#readme"
+  "homepage": "https://github.com/sultanaslam/todoApp#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack": "^3.10.0"
+  }
 }

@@ -1,10 +1,10 @@
 
-	function addListItem(item, listItems) {
+	export function addListItem(item, listItems) {
 		listItems.push(item);		
 		renderArray(listItems);
 	};
 
-	function removeListItem(index, listItems){
+	export function removeListItem(index, listItems){
 		listItems.splice(index, 1);
 		renderArray(listItems);
 	}
@@ -80,4 +80,5 @@
 			});
 	};	
 
-module.exports = addListItem;
+// module.exports = addListItem;
+// export default addListItem;

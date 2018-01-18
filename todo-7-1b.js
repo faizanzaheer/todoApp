@@ -1,8 +1,9 @@
+import {addListItem as addItems, removeListItem as removeItems} from './fun';
 $(document).ready(function(){
 
-	console.log('Loading.....');
+	console.log(`Loading.....`);
 
-	var addItems = require('./fun');
+	// var addItems = require('./fun');
 
 	var listItems = [];
 

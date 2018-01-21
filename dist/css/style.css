@@ -1,0 +1,10 @@
+::selection {
+  color: #d35400; 
+  background: #2c3e50;
+}
+table{
+	margin: 20px 0;
+}
+.completed{
+	text-decoration: line-through;
+}

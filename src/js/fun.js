@@ -1,4 +1,4 @@
-
+	import $ from 'jquery';
 	export function addListItem(item, listItems) {
 		listItems.push(item);		
 		renderArray(listItems);

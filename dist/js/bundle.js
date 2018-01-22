@@ -10439,22 +10439,17 @@ return jQuery;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function($) {
 
 var _fun = __webpack_require__(2);
 
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
 __webpack_require__(3);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+__webpack_require__(6);
 
-(0, _jquery2.default)(document).ready(function () {
+// import $ from 'jquery';
+$(document).ready(function () {
 
-	console.log('Loading.....');
-	console.log('Loading.....');
 	console.log('Loading.....');
 
 	// var addItems = require('./fun');
@@ -10463,36 +10458,31 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 	// obj = {age: 24};
 	// obj1 = {...obj};
 
-	(0, _jquery2.default)('form').on('submit', formCb);
+	$('form').on('submit', formCb);
 
 	function formCb(event) {
 		event.preventDefault();
-		var itemValue = (0, _jquery2.default)('#listItemInput').val();
+		var itemValue = $('#listItemInput').val();
 		var itemObj = { itemValue: itemValue, completed: false };
-		(0, _jquery2.default)('#listItemInput').val('');
+		$('#listItemInput').val('');
 		(0, _fun.addListItem)(itemObj, listItems);
 	}
 });
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function($) {
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.addListItem = addListItem;
 exports.removeListItem = removeListItem;
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+// import $ from 'jquery';
 function addListItem(item, listItems) {
 	listItems.push(item);
 	renderArray(listItems);
@@ -10530,27 +10520,27 @@ function completedItem(index, listItems) {
 }
 
 function renderArray(listItems) {
-	(0, _jquery2.default)('tbody').remove();
-	(0, _jquery2.default)('table').append('<tbody></tbody>');
+	$('tbody').remove();
+	$('table').append('<tbody></tbody>');
 	listItems.map(function (listItem, index) {
 		return '<tr id="row' + index + '">\n\t\t\t\t\t<td>' + index + '</td>\n\t\t\t\t\t<td class=' + (listItem.completed ? 'completed' : '') + '>' + listItem.itemValue + '</td>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<button class="btn btn-success" id="btnComplete' + index + '">Completed</button>\n\t\t\t\t\t\t<button class="btn" id="btnUp' + index + '">\n\t\t\t\t\t\t\tShift\n\t\t\t\t\t\t\t<span class="glyphicon glyphicon-menu-up"></span>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class="btn" id="btnDown' + index + '">\n\t\t\t\t\t\t\tShift\n\t\t\t\t\t\t\t<span class="glyphicon glyphicon-menu-down"></span>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class="btn btn-danger" id="btnDel' + index + '">Delete</button>\n\t\t\t\t\t</td>\n\t\t\t\t</tr>';
 	}).forEach(function (item, index) {
-		(0, _jquery2.default)('tbody').append(item);
+		$('tbody').append(item);
 
-		(0, _jquery2.default)('#btnDel' + index).on('click', function (e) {
+		$('#btnDel' + index).on('click', function (e) {
 			console.log('Delete ' + index);
 			removeListItem(index, listItems);
 		});
 
-		(0, _jquery2.default)('#btnUp' + index).on('click', function (e) {
+		$('#btnUp' + index).on('click', function (e) {
 			shiftUpItem(index, listItems);
 		});
 
-		(0, _jquery2.default)('#btnDown' + index).on('click', function (e) {
+		$('#btnDown' + index).on('click', function (e) {
 			shiftDownItem(index, listItems);
 		});
 
-		(0, _jquery2.default)('#btnComplete' + index).on('click', function (e) {
+		$('#btnComplete' + index).on('click', function (e) {
 			completedItem(index, listItems);
 		});
 	});
@@ -10558,6 +10548,7 @@ function renderArray(listItems) {
 
 // module.exports = addListItem;
 // export default addListItem;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 3 */
@@ -16930,6 +16921,12 @@ try {
 // easier to handle this case. if(!global) { ...}
 
 module.exports = g;
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
 
 
 /***/ })

@@ -1,4 +1,5 @@
-// var webpack = require('webpack')
+var webpack = require('webpack')
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
 	entry: './src/js/todo-7-1b.js',
 	output: {
@@ -22,7 +23,30 @@ module.exports = {
       }
     ]
 	},
-	// plugins: [
-	// 	new webpack.ProvidePlugin
-	// ]
+	{
+		test:/\.scss$/;
+		use: ExtractTextPlugin.extract({
+			use:[
+			{	
+				loader: 'css-loader',
+				options:{
+					url: false
+				}
+			},
+			{
+				'sass-loader'
+			}
+			]
+		})
+	},
+	plugins: [
+		new webpack.ProvidePlugin({
+		'$': 'jquery',
+		'jQuery': 'jquery'
+	}),
+		new ExtractTextPlugin({
+			filename: './dist/css/styles.css'
+		})
+	]
 }
+//INCOMPLETE

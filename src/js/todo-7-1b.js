@@ -1,10 +1,9 @@
 import {addListItem as addItems, removeListItem as removeItems} from './fun';
-import $ from 'jquery';
+// import $ from 'jquery';
 import 'bootstrap';
+import '../css/styles.scss';
 $(document).ready(function(){
 
-	console.log(`Loading.....`);
-	console.log(`Loading.....`);
 	console.log(`Loading.....`);
 
 	// var addItems = require('./fun');

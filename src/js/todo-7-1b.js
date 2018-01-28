@@ -1,6 +1,7 @@
 import {addListItem as addItems, removeListItem as removeItems} from './fun';
 // import $ from 'jquery';
 import 'bootstrap';
+import $ from 'jquery';
 import '../css/styles.scss';
 $(document).ready(function(){
 

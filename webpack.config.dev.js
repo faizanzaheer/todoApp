@@ -37,7 +37,7 @@ module.exports = {
           // you load the required submodules
           options: {
           // first type is type preset which is all of es6/es7/es8 packaged into one module
-            presets: ['env', 'stage-3'],
+            presets: ['env', 'stage-3', 'react'],
           // second is type transforms loaded through plugins which are indivdual features loaded
          
           // Instead of plugin we could have loaded the whole preset called stage-3 which currently contains teh object spread operator

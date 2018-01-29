@@ -1,49 +1,52 @@
 
 	import $ from 'jquery';
 	export default class List{
+		constructor(){
+			this.listItems = [];
+		}
 
-	 addListItem(item, listItems) {
-		listItems.push(item);		
-		this.renderArray(listItems);
+	 addListItem(item) {
+		this.listItems.push(item);		
+		this.renderArray();
 	};
 
-	 removeListItem(index, listItems){
-		listItems.splice(index, 1);
-		this.renderArray(listItems);
+	 removeListItem(index){
+		this.listItems.splice(index, 1);
+		this.renderArray();
 	}
 
-	 shiftUpItem(index, listItems) {
+	 shiftUpItem(index) {
 		if (!index) {
 			return null;
 		}else{
-			var temp = listItems.splice(index, 1);
-			listItems.splice(index-1, 0, temp[0]);
-			this.renderArray(listItems);
+			var temp = this.listItems.splice(index, 1);
+			this.listItems.splice(index-1, 0, temp[0]);
+			this.renderArray();
 		}
 	}
 
-	 shiftDownItem(index, listItems) {
-		if (index >= listItems.length-1) {
+	 shiftDownItem(index) {
+		if (index >= this.listItems.length-1) {
 			return null;
 		}else{
-			var temp = listItems.splice(index, 1);
-			listItems.splice(index+1, 0, temp[0]);
-			this.renderArray(listItems);
+			var temp = this.listItems.splice(index, 1);
+			this.listItems.splice(index+1, 0, temp[0]);
+			this.renderArray();
 		}
 	}
 
-	 completedItem(index, listItems) {
-		listItems[index].completed = !listItems[index].completed;
-		console.log(listItems[index].completed)
-		this.renderArray(listItems);
+	 completedItem(index) {
+		this.listItems[index].completed = !this.listItems[index].completed;
+		console.log(this.listItems[index].completed)
+		this.renderArray();
 	}
 
-	 renderArray(listItems) {
+	 renderArray() {
 	 	console.log('renderArray', this)
 	 	// var that = this;
 		$('tbody').remove();
 		$('table').append('<tbody></tbody>');
-		listItems.map((listItem, index) =>{//in ES6 we this arrow instead of .bind(this)
+		this.listItems.map((listItem, index) =>{//in ES6 we this arrow instead of .bind(this) no need to write the function property
 			console.log('listItems', this)
 			return(
 				`<tr id="row${index}">
@@ -66,24 +69,24 @@
 		}).forEach((item, index) =>{
 				$('tbody').append(item);
 				
-				$(`#btnDel${index}`).on('click', function(e){
+				$(`#btnDel${index}`).on('click', e =>{//instead of function(e) we used e => 
 					console.log(`Delete ${index}`);
-					this.removeListItem(index, listItems);
-				}.bind(this));
+					this.removeListItem(index);
+				});
 				
-				$(`#btnUp${index}`).on('click', function(e){
-					this.shiftUpItem(index, listItems);
-				}.bind(this));
+				$(`#btnUp${index}`).on('click', e =>{
+					this.shiftUpItem(index);
+				});
 
-				$(`#btnDown${index}`).on('click', function(e){
-					this.shiftDownItem(index, listItems);
-				}.bind(this));
+				$(`#btnDown${index}`).on('click', e =>{
+					this.shiftDownItem(index);
+				});
 
-				$(`#btnComplete${index}`).on('click', function(e){
-					this.completedItem(index, listItems);
-				}.bind(this));
+				$(`#btnComplete${index}`).on('click', e =>{
+					this.completedItem(index);
+				});
 
-			}.bind(this));
+			});
 	};	
 }
 

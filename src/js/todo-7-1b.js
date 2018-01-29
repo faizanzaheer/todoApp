@@ -1,4 +1,4 @@
-import {addListItem as addItems, removeListItem as removeItems} from './fun';
+import List from './fun.js';
 // import $ from 'jquery';
 import 'bootstrap';
 import $ from 'jquery';
@@ -9,6 +9,7 @@ $(document).ready(function(){
 
 	// var addItems = require('./fun');
 	var listItems = [];
+	var list = new List();
 	
 	// obj = {age: 24};
 	// obj1 = {...obj};
@@ -20,7 +21,7 @@ $(document).ready(function(){
 		var itemValue = $('#listItemInput').val();
 		var itemObj = {itemValue: itemValue, completed: false};
 		$('#listItemInput').val('');
-		addItems(itemObj, listItems);
+		list.addListItem(itemObj, listItems);
 	}	
 	
 });

@@ -1,44 +1,50 @@
+
 	import $ from 'jquery';
-	export function addListItem(item, listItems) {
+	export default class List{
+
+	 addListItem(item, listItems) {
 		listItems.push(item);		
-		renderArray(listItems);
+		this.renderArray(listItems);
 	};
 
-	export function removeListItem(index, listItems){
+	 removeListItem(index, listItems){
 		listItems.splice(index, 1);
-		renderArray(listItems);
+		this.renderArray(listItems);
 	}
 
-	function shiftUpItem(index, listItems) {
+	 shiftUpItem(index, listItems) {
 		if (!index) {
 			return null;
 		}else{
 			var temp = listItems.splice(index, 1);
 			listItems.splice(index-1, 0, temp[0]);
-			renderArray(listItems);
+			this.renderArray(listItems);
 		}
 	}
 
-	function shiftDownItem(index, listItems) {
+	 shiftDownItem(index, listItems) {
 		if (index >= listItems.length-1) {
 			return null;
 		}else{
 			var temp = listItems.splice(index, 1);
 			listItems.splice(index+1, 0, temp[0]);
-			renderArray(listItems);
+			this.renderArray(listItems);
 		}
 	}
 
-	function completedItem(index, listItems) {
+	 completedItem(index, listItems) {
 		listItems[index].completed = !listItems[index].completed;
 		console.log(listItems[index].completed)
-		renderArray(listItems);
+		this.renderArray(listItems);
 	}
 
-	function renderArray(listItems) {
+	 renderArray(listItems) {
+	 	console.log('renderArray', this)
+	 	// var that = this;
 		$('tbody').remove();
 		$('table').append('<tbody></tbody>');
-		listItems.map(function(listItem, index){
+		listItems.map((listItem, index) =>{//in ES6 we this arrow instead of .bind(this)
+			console.log('listItems', this)
 			return(
 				`<tr id="row${index}">
 					<td>${index}</td>
@@ -57,28 +63,29 @@
 					</td>
 				</tr>`
 			)
-		}).forEach(function(item, index){
+		}).forEach((item, index) =>{
 				$('tbody').append(item);
 				
 				$(`#btnDel${index}`).on('click', function(e){
 					console.log(`Delete ${index}`);
-					removeListItem(index, listItems);
-				});
+					this.removeListItem(index, listItems);
+				}.bind(this));
 				
 				$(`#btnUp${index}`).on('click', function(e){
-					shiftUpItem(index, listItems);
-				});
+					this.shiftUpItem(index, listItems);
+				}.bind(this));
 
 				$(`#btnDown${index}`).on('click', function(e){
-					shiftDownItem(index, listItems);
-				});
+					this.shiftDownItem(index, listItems);
+				}.bind(this));
 
 				$(`#btnComplete${index}`).on('click', function(e){
-					completedItem(index, listItems);
-				});
+					this.completedItem(index, listItems);
+				}.bind(this));
 
-			});
+			}.bind(this));
 	};	
+}
 
 // module.exports = addListItem;
 // export default addListItem;
